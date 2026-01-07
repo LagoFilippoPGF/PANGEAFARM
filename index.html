@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pangea Farm | Filiera corta, provincia autosufficiente</title>
+  <meta name="description" content="Pangea Farm: abbonamenti in validazione prodotto per ricevere cibo a casa con filiera corta e trasparenza totale. Operatività: Provincia di Padova. Consegna: giovedì. Minimo 4 settimane. Questionario via WhatsApp per capire problemi e bisogni reali." />
+
+  <style>
+    :root{
+      --bg:#fbfbf3;
+      --surface:#f3f7ea;
+      --text:#152211;
+      --muted:#66795a;
+
+      --line:rgba(34, 62, 25, .12);
+      --line2:rgba(34, 62, 25, .20);
+
+      --shadow: 0 18px 52px rgba(34,62,25,.10);
+      --shadow2: 0 10px 28px rgba(34,62,25,.08);
+
+      --r:18px;
+      --r2:28px;
+      --max:1120px;
+
+      --cta:#2f6b2f;
+      --ctaText:#ffffff;
+
+      --accentY:#f3c84e;
+      --accentG:#6fb56f;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      color:var(--text);
+
+      background:
+        radial-gradient(1100px 680px at 18% 0%, rgba(111,181,111,.14), transparent 58%),
+        radial-gradient(900px 620px at 92% 8%, rgba(243,200,78,.14), transparent 58%),
+
+        radial-gradient(circle at 10% 30%, rgba(243,200,78,.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 18% 72%, rgba(111,181,111,.16) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 18%, rgba(243,200,78,.14) 0 1.5px, transparent 2.8px),
+        radial-gradient(circle at 42% 62%, rgba(111,181,111,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 56% 26%, rgba(243,200,78,.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 66% 78%, rgba(111,181,111,.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 40%, rgba(243,200,78,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 64%, rgba(111,181,111,.12) 0 2px, transparent 3px),
+
+        var(--bg);
+      background-repeat:no-repeat;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      letter-spacing:.01em;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px}
+
+    .topbar{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+      padding:10px 0 18px;
+    }
+    .brand{display:flex; flex-direction:column; gap:10px; min-width:280px}
+    .logoRow{display:flex; gap:12px; align-items:center}
+
+    .mark{
+      width:50px; height:50px; border-radius:16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #eef6e7);
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      user-select:none;
+      overflow:hidden;
+    }
+    .mark svg{display:block; width:40px; height:40px}
+
+    .nameRow{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+    .name{font-weight:950; letter-spacing:-.02em; font-size:28px; line-height:1.1}
+    .familySlogan{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#4f6b3f;
+      border:1px solid rgba(79,107,63,.25);
+      background:#f2f6ea;
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .slogan{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-top:2px;
+    }
+    .metaRow{display:flex; gap:10px; flex-wrap:wrap}
+    .meta{
+      font-size:12px;
+      color:#4f6b3f;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(79,107,63,.25);
+      background: #f2f6ea;
+    }
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      background:#fff;
+      font-weight:800;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      box-shadow: 0 6px 18px rgba(34,62,25,.08);
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(34,62,25,.35);
+      box-shadow: 0 14px 28px rgba(34,62,25,.12);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, #3a7a3a, #2f6b2f);
+      color: var(--ctaText);
+      border-color: rgba(34,62,25,.35);
+      box-shadow: 0 16px 40px rgba(34,62,25,.22);
+    }
+    .btn.primary:hover{transform:translateY(-1px) scale(1.01)}
+    .btn.ghost{background:transparent; box-shadow:none}
+
+    .hero{
+      border:1px solid var(--line);
+      border-radius: var(--r2);
+      background: linear-gradient(180deg, #ffffff, #fffdf0);
+      box-shadow: var(--shadow);
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media(min-width:980px){
+      .heroGrid{grid-template-columns: 1.25fr .75fr;}
+    }
+    .heroCopy{position:relative}
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px;
+      color:#4f6b3f;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      padding:8px 12px;
+      border:1px solid rgba(79,107,63,.25);
+      border-radius:999px;
+      background:#f2f6ea;
+      width:fit-content;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:44px;
+      letter-spacing:-.04em;
+      line-height:1.08;
+      max-width:980px;
+      font-weight:950;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:980px;
+    }
+    .heroCtas{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .note{
+      margin-top:16px;
+      border:1px solid rgba(34,62,25,.12);
+      background:#f3f7ea;
+      border-radius:16px;
+      padding:12px 14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .imgCard{
+      border:1px solid var(--line);
+      border-radius: 20px;
+      overflow:hidden;
+      background: #fff;
+      box-shadow: var(--shadow2);
+      display:flex;
+      flex-direction:column;
+      min-height: 280px;
+    }
+    .imgCard .img{
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+    .imgCard .cap{
+      padding:14px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .cap strong{color:var(--text)}
+    .imgHero{height: 190px}
+    @media(min-width:980px){
+      .imgHero{height: 100%}
+    }
+
+    .sectionTitle{
+      margin:28px 0 12px;
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background:#fff;
+      padding:18px;
+      box-shadow: 0 10px 26px rgba(34,62,25,.08);
+    }
+    @media(min-width:940px){
+      .card.half{grid-column: span 6;}
+      .card.third{grid-column: span 4;}
+    }
+    .card h2{margin:0 0 8px; font-size:18px; letter-spacing:-.01em}
+    .card p{margin:0; color:var(--muted)}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    ul li{margin:6px 0}
+    .divider{height:1px; background: var(--line); margin:14px 0}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
+    .spec{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: var(--surface);
+    }
+    .specRow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .specRow strong{color:var(--text); font-weight:850}
+
+    .pkgHead{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+    .pkgBadge{
+      font-size:11px; color:#4f6b3f;
+      border:1px solid rgba(79,107,63,.25);
+      background:#f2f6ea;
+      padding:7px 10px;
+      border-radius:999px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .callout{
+      border:1px solid rgba(79,107,63,.22);
+      background: linear-gradient(180deg, #ffffff, #f7fbef);
+      border-radius: 18px;
+      padding:14px;
+      color:var(--muted);
+      box-shadow: 0 10px 24px rgba(34,62,25,.06);
+    }
+    .callout strong{color:var(--text)}
+    .callout .actions{margin-top:12px}
+
+    footer{
+      margin:30px 0 8px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .link{color:#23451c; text-decoration:none; border-bottom:1px solid rgba(34,62,25,.25)}
+    .link:hover{border-bottom-color: rgba(34,62,25,.55)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logoRow">
+
+          <div class="mark" aria-label="Logo Pangea Farm">
+            <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="rgba(243,200,78,.30)"/>
+                  <stop offset="1" stop-color="rgba(111,181,111,.10)"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="64" height="64" fill="url(#sky)"/>
+
+              <circle cx="50" cy="14" r="6" fill="rgba(243,200,78,.95)"/>
+              <circle cx="50" cy="14" r="10" fill="rgba(243,200,78,.18)"/>
+
+              <path d="M6 46 C16 40, 28 38, 40 40 C52 42, 58 48, 60 54"
+                    fill="none" stroke="rgba(47,107,47,.32)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M6 52 C16 46, 28 44, 40 46 C52 48, 58 54, 60 60"
+                    fill="none" stroke="rgba(47,107,47,.20)" stroke-width="3" stroke-linecap="round"/>
+
+              <path d="M16 30 L32 18 L48 30" fill="rgba(47,107,47,.12)" stroke="rgba(21,34,17,.70)" stroke-width="3.2" stroke-linejoin="round"/>
+              <rect x="18" y="30" width="28" height="22" rx="3"
+                    fill="rgba(255,255,255,.55)" stroke="rgba(21,34,17,.70)" stroke-width="3.2"/>
+              <rect x="28" y="38" width="8" height="14" rx="2"
+                    fill="rgba(111,181,111,.18)" stroke="rgba(21,34,17,.55)" stroke-width="2.4"/>
+              <rect x="23" y="34" width="6" height="5" rx="1.5"
+                    fill="rgba(243,200,78,.22)" stroke="rgba(21,34,17,.45)" stroke-width="2"/>
+
+              <circle cx="18" cy="56" r="2.6" fill="rgba(21,34,17,.78)"/>
+              <path d="M18 59.5 C15.2 59.5, 13.6 58.6, 13.1 57.4" fill="none" stroke="rgba(21,34,17,.78)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M18 59.5 C20.8 59.5, 22.4 58.6, 22.9 57.4" fill="none" stroke="rgba(21,34,17,.78)" stroke-width="2.2" stroke-linecap="round"/>
+
+              <circle cx="26" cy="56.3" r="2.4" fill="rgba(21,34,17,.70)"/>
+              <path d="M26 59.6 C23.7 59.6, 22.4 58.9, 22.0 57.8" fill="none" stroke="rgba(21,34,17,.70)" stroke-width="2.0" stroke-linecap="round"/>
+              <path d="M26 59.6 C28.3 59.6, 29.6 58.9, 30.0 57.8" fill="none" stroke="rgba(21,34,17,.70)" stroke-width="2.0" stroke-linecap="round"/>
+
+              <circle cx="22" cy="58.5" r="2.0" fill="rgba(47,107,47,.78)"/>
+              <path d="M22 61.2 C20.4 61.2, 19.6 60.7, 19.3 60.0" fill="none" stroke="rgba(47,107,47,.78)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M22 61.2 C23.6 61.2, 24.4 60.7, 24.7 60.0" fill="none" stroke="rgba(47,107,47,.78)" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="nameRow">
+              <div class="name">Pangea Farm</div>
+              <div class="familySlogan">da una famiglia per le famiglie</div>
+            </div>
+            <div class="slogan">filiera corta • provincia autosufficiente</div>
+          </div>
+        </div>
+
+        <div class="metaRow">
+          <div class="meta">Area: Provincia di Padova</div>
+          <div class="meta">Consegna: solo giovedì</div>
+          <div class="meta">Minimo: 4 settimane</div>
+          <div class="meta">Pagamento: PayPal / Stripe</div>
+          <div class="meta">Fase: validazione prodotto</div>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn"
+           href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20compilare%20il%20questionario%20di%20validazione%20(per%20capire%20le%20problematiche%20attuali%20nell%E2%80%99acquisto%20del%20cibo).%0A%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ANucleo%20familiare%3A%20_____%0AGrazie."
+           target="_blank" rel="noopener">
+          Questionario WhatsApp
+        </a>
+
+        <a class="btn primary"
+           href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20attivare%20un%20abbonamento%20(minimo%204%20settimane).%0A%0ASoluzione%3A%20Box%20Piccola%20%2F%20Media%20%2F%20Famiglia%20%2F%20Solo%20Uova%20%2F%20Solo%20Verdure%0AConsegna%3A%20Gioved%C3%AC%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0ANome%3A%20_____%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0AGrazie."
+           target="_blank" rel="noopener">
+          Attiva abbonamento
+        </a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="heroGrid">
+
+        <div class="heroCopy">
+          <div class="eyebrow">VALIDAZIONE • FILIERA CORTA • TRASPARENZA TOTALE</div>
+          <h1>Stiamo validando il modello. Con le famiglie, sul campo.</h1>
+          <p class="lead">
+            Pangea Farm nasce per rendere <strong>filiera corta, comodità e qualità</strong> una routine.
+            In questa fase stiamo raccogliendo dati reali su problemi e abitudini d’acquisto,
+            per costruire un servizio che funziona davvero settimana dopo settimana.
+          </p>
+
+          <div class="heroCtas">
+            <a class="btn primary" href="#questionario">Compila il questionario</a>
+            <a class="btn" href="#abbonamenti">Abbonamenti</a>
+            <a class="btn ghost" href="#b2b">B2B</a>
+            <a class="btn ghost" href="#investitori">Investitori</a>
+          </div>
+
+          <div class="note">
+            <strong>Operatività attuale:</strong> Provincia di Padova • consegna solo giovedì • minimo 4 settimane.
+            <strong>Fase:</strong> validazione prodotto (il tuo feedback è parte del progetto).
+          </div>
+        </div>
+
+        <div class="imgCard imgHero">
+          <div class="img" id="heroImg"></div>
+          <div class="cap">
+            <strong>Obiettivo:</strong> freschezza e trasparenza totale, senza attrito nella routine.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUESTIONARIO / VALIDAZIONE -->
+    <div class="sectionTitle" id="questionario">Validazione</div>
+    <div class="grid">
+      <section class="card half">
+        <h2>Questionario WhatsApp (2 minuti)</h2>
+        <p>
+          Ci interessa capire cosa oggi rende l’acquisto del cibo <strong>stressante, poco chiaro o inefficiente</strong>.
+          Il questionario serve a migliorare servizio, prodotti e consegna.
+        </p>
+        <div class="divider"></div>
+        <ul>
+          <li><strong>Problemi attuali:</strong> tempo, qualità, sprechi, prezzi, code, mancanza di fiducia</li>
+          <li><strong>Abitudini:</strong> dove compri e perché</li>
+          <li><strong>Preferenze:</strong> cosa ti serve davvero ogni settimana</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20fare%20il%20questionario%20di%20validazione.%0A%0A1)%20Comune%3A%20_____%0A2)%20Nucleo%20familiare%3A%20_____%0A3)%20Oggi%20dove%20compri%20di%20solito%3F%20(supermercato%2Fmercato%2Fnegozio%2Fonline%2Faltro)%0A4)%20Qual%20%C3%A8%20il%20problema%20pi%C3%B9%20grande%20oggi%3F%20(tempo%2Fqualit%C3%A0%2Fsprechi%2Fprezzo%2Ffiducia%2Flogistica)%0A5)%20Quanto%20spesso%20fai%20spesa%3F%0A6)%20Cosa%20butti%20pi%C3%B9%20spesso%20(o%20ti%20scade)%3F%0A7)%20Cosa%20ti%20manca%20in%20termini%20di%20trasparenza%3F%0A8)%20Cosa%20vorresti%20ricevere%20ogni%20settimana%20(sempre)%3F%0A9)%20Cosa%20vuoi%20evitare%20(scelte%20casuali%2Ftroppa%20variazione%2Fconfezioni%2Faltro)%3F%0A10)%20Se%20funzionasse%2C%20cosa%20ti%20convincerebbe%20a%20abbonarti%3F%0A%0AGrazie!"
+             target="_blank" rel="noopener">
+            Avvia questionario su WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>Perché lo facciamo</h2>
+        <p>
+          Vogliamo eliminare i “costi invisibili” dell’acquisto: chilometri, scelte poco chiare, sprechi e variabilità.
+          La validazione serve a costruire un modello replicabile, con una sola regola: <strong>funzionare nel quotidiano</strong>.
+        </p>
+        <div class="divider"></div>
+        <div class="callout">
+          <strong>Se partecipi al questionario</strong> puoi anche chiedere:
+          <br/>• quale abbonamento è più adatto alla tua settimana
+          <br/>• come rendere la consegna più comoda
+          <br/>• quali nuovi prodotti vorresti vedere in futuro
+          <div class="actions">
+            <a class="btn"
+               href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20ho%20compilato%20il%20questionario%20(o%20sto%20per%20compilarlo)%20e%20vorrei%20anche%20un%20consiglio%20sull%E2%80%99abbonamento%20pi%C3%B9%20adatto%20alla%20mia%20settimana.%0A%0AComune%3A%20_____%0ANucleo%3A%20_____%0AInteresse%3A%20Uova%20%2F%20Verdure%20%2F%20Mix%0AGrazie."
+               target="_blank" rel="noopener">
+              Chiedi consiglio
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- MANIFESTO -->
+    <div class="sectionTitle" id="manifesto">Manifesto</div>
+    <div class="grid">
+      <section class="card half">
+        <h2>Filiera corta, comodità, qualità</h2>
+        <p>
+          Il nostro obiettivo è trasformare la filiera corta in una routine semplice.
+          L’abbonamento rende la domanda prevedibile: noi programmiamo, tu ricevi con continuità.
+        </p>
+        <div class="divider"></div>
+        <ul>
+          <li><strong>Trasparenza totale:</strong> meno passaggi, più controllo</li>
+          <li><strong>Freschezza:</strong> consegna settimanale</li>
+          <li><strong>Metodo:</strong> standardizzazione e R&D</li>
+        </ul>
+      </section>
+
+      <section class="card half">
+        <h2>Provincia autosufficiente: obiettivo operativo</h2>
+        <p>
+          Si parte da una provincia, la si serve bene, poi si replica.
+          Oggi: Provincia di Padova. Domani: portare il modello altrove con hub locali.
+        </p>
+        <div class="spec">
+          <div class="specRow"><span>Territorio</span><strong>Provincia di Padova</strong></div>
+          <div class="specRow"><span>Frequenza</span><strong>settimanale (giovedì)</strong></div>
+          <div class="specRow"><span>Minimo</span><strong>4 settimane</strong></div>
+          <div class="specRow"><span>Pagamenti</span><strong>PayPal / Stripe</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RICERCA & SVILUPPO -->
+    <div class="sectionTitle" id="ricerca">Ricerca & sviluppo</div>
+    <div class="grid">
+      <section class="card half">
+        <h2>Il nostro quartier generale</h2>
+        <p>
+          Pangea Farm è anche un centro di ricerca e sviluppo:
+          qui testiamo prodotti e processi per garantire qualità, freschezza e trasparenza totale.
+        </p>
+        <div class="divider"></div>
+        <p>
+          Un prodotto entra negli abbonamenti solo se regge una prova reale:
+          continuità settimanale, gestione logistica e standardizzazione.
+        </p>
+      </section>
+
+      <section class="card half">
+        <h2>Partner di filiera</h2>
+        <p>
+          Cerchiamo aziende che vogliono diventare <strong>partner</strong>:
+          collaborazioni strutturate per crescere con un modello replicabile provincia per provincia.
+        </p>
+        <ul>
+          <li><strong>Standard:</strong> qualità misurabile e costante</li>
+          <li><strong>Metodo:</strong> programmazione, non improvvisazione</li>
+          <li><strong>Scalabilità:</strong> integrazione, test, ottimizzazione</li>
+        </ul>
+        <div class="actions">
+          <a class="btn"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20siamo%20un%E2%80%99azienda%20interessata%20a%20diventare%20partner%20di%20filiera.%0A%0AAzienda%3A%20_____%0AProdotto%2Flinea%3A%20_____%0AZona%3A%20_____%0ACapacit%C3%A0%20settimanale%3A%20_____%0AContatto%3A%20_____%0AGrazie."
+             target="_blank" rel="noopener">
+            Candidatura partner
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- PRODOTTI -->
+    <div class="sectionTitle" id="prodotti">Prodotti</div>
+    <div class="grid">
+      <section class="card third">
+        <div class="imgCard" style="box-shadow:none; border:none; padding:0; margin-bottom:12px;">
+          <div class="img" id="eggImg"></div>
+        </div>
+        <h2>Uova</h2>
+        <p>Uova brune da galline allevate a terra. Standard costante, gestione semplice.</p>
+        <div class="spec">
+          <div class="specRow"><span>Allevamento</span><strong>a terra</strong></div>
+          <div class="specRow"><span>Calibro</span><strong>M / L</strong></div>
+          <div class="specRow"><span>Colore</span><strong>brune</strong></div>
+        </div>
+      </section>
+
+      <section class="card third">
+        <div class="imgCard" style="box-shadow:none; border:none; padding:0; margin-bottom:12px;">
+          <div class="img" id="vegImg"></div>
+        </div>
+        <h2>Verdure pronte</h2>
+        <p>Insalate pronte, basilico e rucola: freschezza e praticità in routine.</p>
+        <div class="spec">
+          <div class="specRow"><span>Formato</span><strong>pronte</strong></div>
+          <div class="specRow"><span>Selezione</span><strong>rossa/verde + aromatiche</strong></div>
+          <div class="specRow"><span>Rotazione</span><strong>stagionale</strong></div>
+        </div>
+      </section>
+
+      <section class="card third">
+        <div class="imgCard" style="box-shadow:none; border:none; padding:0; margin-bottom:12px;">
+          <div class="img" id="microImg"></div>
+        </div>
+        <h2>Microgreens</h2>
+        <p>Vaschetta tagliata, selezione variabile. Qualità alta, frequenza alta.</p>
+        <div class="spec">
+          <div class="specRow"><span>Formato</span><strong>vaschetta tagliata</strong></div>
+          <div class="specRow"><span>Selezione</span><strong>variabile</strong></div>
+          <div class="specRow"><span>Target</span><strong>famiglie / PRO</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ABBONAMENTI -->
+    <div class="sectionTitle" id="abbonamenti">Abbonamenti</div>
+    <div class="grid">
+      <section class="card third">
+        <div class="pkgHead">
+          <h2>Box Piccola</h2>
+          <div class="pkgBadge">Start</div>
+        </div>
+        <p>Mix essenziale per 1–2 persone. Routine settimanale, standard costante.</p>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20prezzi%20e%20attivazione%20per%20BOX%20PICCOLA%20(min%204%20settimane).%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0AGrazie."
+             target="_blank" rel="noopener">Prezzi e attivazione</a>
+        </div>
+      </section>
+
+      <section class="card third">
+        <div class="pkgHead">
+          <h2>Box Media</h2>
+          <div class="pkgBadge">Equilibrio</div>
+        </div>
+        <p>Formato bilanciato per la settimana. La scelta più versatile.</p>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20prezzi%20e%20attivazione%20per%20BOX%20MEDIA%20(min%204%20settimane).%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0AGrazie."
+             target="_blank" rel="noopener">Prezzi e attivazione</a>
+        </div>
+      </section>
+
+      <section class="card third">
+        <div class="pkgHead">
+          <h2>Box Famiglia</h2>
+          <div class="pkgBadge">Completa</div>
+        </div>
+        <p>Per nuclei 3–5 persone. Più quantità, stessa routine settimanale.</p>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20prezzi%20e%20attivazione%20per%20BOX%20FAMIGLIA%20(min%204%20settimane).%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0AGrazie."
+             target="_blank" rel="noopener">Prezzi e attivazione</a>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>Solo Uova</h2>
+        <p>Routine semplice: uova a terra M/L brune. Freschezza settimanale, trasparenza totale.</p>
+        <div class="spec">
+          <div class="specRow"><span>Standard</span><strong>a terra • M/L • brune</strong></div>
+          <div class="specRow"><span>Ritmo</span><strong>settimanale (giovedì)</strong></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20attivare%20SOLO%20UOVA%20(min%204%20settimane).%0AQuantit%C3%A0%20a%20settimana%3A%20_____%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0AGrazie."
+             target="_blank" rel="noopener">Prezzi e attivazione</a>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>Solo Verdure</h2>
+        <p>Insalate pronte + basilico/rucola + microgreens. Selezione variabile, standard costante.</p>
+        <div class="spec">
+          <div class="specRow"><span>Formato</span><strong>pronte + vaschetta tagliata</strong></div>
+          <div class="specRow"><span>Selezione</span><strong>variabile</strong></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20attivare%20SOLO%20VERDURE%20(min%204%20settimane).%0APreferenze%20(se%20presenti)%3A%20insalata%20rossa%2Fverde%20-%20basilico%2Frucola%0AComune%3A%20_____%0AIndirizzo%3A%20_____%0ARitiro%20in%20azienda%3A%20s%C3%AC%2Fno%0APagamento%3A%20PayPal%2FStripe%0AGrazie."
+             target="_blank" rel="noopener">Prezzi e attivazione</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- B2B -->
+    <div class="sectionTitle" id="b2b">B2B</div>
+    <div class="grid">
+      <section class="card half">
+        <h2>Forniture per professionisti</h2>
+        <p>
+          Collaboriamo con bar, ristoranti premium, ristoranti tradizionali, hotel, catering e mense.
+          In validazione stiamo misurando: resa, continuità e standard.
+        </p>
+        <div class="spec">
+          <div class="specRow"><span>Territorio</span><strong>Provincia di Padova</strong></div>
+          <div class="specRow"><span>Consegna</span><strong>giovedì</strong></div>
+          <div class="specRow"><span>Modello</span><strong>ricorrente (routine)</strong></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20siamo%20un%E2%80%99attivit%C3%A0%20B2B%20e%20vorremmo%20partecipare%20alla%20validazione%20(listino%20%2B%20test%20fornitura).%0A%0AAttivit%C3%A0%3A%20_____%0AComune%3A%20_____%0AVolumi%20indicativi%3A%20_____%0AProdotti%20d%E2%80%99interesse%3A%20Uova%20%2F%20Verdure%20%2F%20Microgreens%0AGrazie."
+             target="_blank" rel="noopener">Richiedi test B2B</a>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>Questionario B2B (2 minuti)</h2>
+        <p>
+          Per capire problemi reali in cucina: costanza, sprechi, tempi, forniture e affidabilità.
+          Ci serve per costruire un’offerta B2B stabile.
+        </p>
+        <div class="actions">
+          <a class="btn"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20vorrei%20il%20questionario%20B2B%20di%20validazione.%0A%0A1)%20Attivit%C3%A0%3A%20_____%0A2)%20Comune%3A%20_____%0A3)%20Problema%20pi%C3%B9%20grande%20con%20i%20fornitori%20oggi%3F%0A4)%20Cosa%20ti%20manca%20di%20pi%C3%B9%3A%20qualit%C3%A0%2Fcontinuit%C3%A0%2Ftrasparenza%2Ftempo%2Fresa%0A5)%20Volumi%20settimanali%20indicativi%3A%20_____%0A6)%20Finestra%20consegna%20preferita%3A%20_____%0A7)%20Prodotti%20prioritari%3A%20_____%0A8)%20Note%20operative%3A%20_____%0A%0AGrazie."
+             target="_blank" rel="noopener">Avvia questionario B2B</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- INVESTITORI -->
+    <div class="sectionTitle" id="investitori">Investitori</div>
+    <div class="grid">
+      <section class="card">
+        <h2>Porta Pangea Farm nella tua provincia</h2>
+        <p>
+          La validazione serve anche a questo: rendere il modello replicabile.
+          Cerchiamo investitori e operatori locali per aprire hub territoriali e portare il progetto in nuove province.
+        </p>
+
+        <div class="spec">
+          <div class="specRow"><span>Cosa replichiamo</span><strong>HQ R&D + routine settimanale + standard</strong></div>
+          <div class="specRow"><span>Canali</span><strong>famiglie (abbonamento) + B2B ricorrente</strong></div>
+          <div class="specRow"><span>Focus</span><strong>filiera corta, comodità, qualità</strong></div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary"
+             href="https://wa.me/393409666810?text=Buongiorno%20Pangea%20Farm,%20sono%20interessato%20a%20portare%20il%20modello%20nella%20mia%20provincia%20(investitore%20%2F%20operatore%20locale).%0A%0AProvincia%3A%20_____%0ARuolo%3A%20Investitore%20%2F%20Operatore%0ADisponibilit%C3%A0%20per%20call%3A%20_____%0AContatto%3A%20_____%0AGrazie."
+             target="_blank" rel="noopener">
+            Contatto investitori
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div><strong>Pangea Farm</strong> — filiera corta • provincia autosufficiente</div>
+      <div>
+        WhatsApp: <a class="link" href="https://wa.me/393409666810" target="_blank" rel="noopener">+39 340 966 6810</a>
+        &nbsp;•&nbsp; © <span id="y"></span>
+      </div>
+
+      <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        function svgData(svg) {
+          return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg.trim());
+        }
+
+        const heroSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2f4a24" stop-opacity=".10"/>
+              <stop offset="1" stop-color="#2f4a24" stop-opacity=".02"/>
+            </linearGradient>
+            <radialGradient id="r" cx="35%" cy="18%" r="80%">
+              <stop offset="0" stop-color="#f3c84e" stop-opacity=".18"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="r2" cx="80%" cy="55%" r="85%">
+              <stop offset="0" stop-color="#6fb56f" stop-opacity=".14"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="800" fill="#fffdf0"/>
+          <rect width="1200" height="800" fill="url(#g)"/>
+          <rect width="1200" height="800" fill="url(#r)"/>
+          <rect width="1200" height="800" fill="url(#r2)"/>
+          <g opacity=".9">
+            <path d="M120 560 C260 420, 420 420, 560 560 S860 700, 1040 560" fill="none" stroke="#2f4a24" stroke-opacity=".22" stroke-width="6"/>
+            <path d="M150 610 C300 470, 430 490, 590 610 S890 735, 1080 610" fill="none" stroke="#2f4a24" stroke-opacity=".13" stroke-width="4"/>
+            <circle cx="250" cy="260" r="92" fill="#2f4a24" fill-opacity=".05"/>
+            <circle cx="905" cy="240" r="140" fill="#2f4a24" fill-opacity=".03"/>
+            <circle cx="760" cy="520" r="210" fill="#2f4a24" fill-opacity=".025"/>
+            <circle cx="520" cy="240" r="70" fill="#f3c84e" fill-opacity=".08"/>
+            <circle cx="1020" cy="520" r="85" fill="#6fb56f" fill-opacity=".08"/>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial" fill="#152211" opacity=".92">
+            <text x="70" y="120" font-size="24" letter-spacing="6" opacity=".55">PANGEA FARM</text>
+            <text x="70" y="170" font-size="44" font-weight="850" opacity=".80">Validazione</text>
+            <text x="70" y="220" font-size="18" opacity=".60">filiera corta • comodità • qualità</text>
+          </g>
+        </svg>`;
+
+        const eggSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
+          <rect width="1200" height="700" fill="#fffdf0"/>
+          <g opacity=".9">
+            <circle cx="900" cy="220" r="180" fill="#2f4a24" fill-opacity=".04"/>
+            <circle cx="260" cy="520" r="220" fill="#f3c84e" fill-opacity=".10"/>
+            <circle cx="520" cy="180" r="80" fill="#6fb56f" fill-opacity=".08"/>
+          </g>
+          <g>
+            <path d="M600 540 C720 540, 790 420, 790 320 C790 190, 700 90, 600 90 C500 90, 410 190, 410 320 C410 420, 480 540, 600 540 Z"
+              fill="#2f4a24" fill-opacity=".06" stroke="#2f4a24" stroke-opacity=".20" stroke-width="4"/>
+            <path d="M520 340 C560 260, 640 260, 680 340" fill="none" stroke="#2f4a24" stroke-opacity=".18" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial" fill="#152211">
+            <text x="50" y="110" font-size="22" letter-spacing="6" opacity=".55">UOVA</text>
+            <text x="50" y="155" font-size="16" opacity=".55">standard costante • freschezza</text>
+          </g>
+        </svg>`;
+
+        const vegSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
+          <rect width="1200" height="700" fill="#fffdf0"/>
+          <g opacity=".9">
+            <circle cx="300" cy="220" r="170" fill="#f3c84e" fill-opacity=".10"/>
+            <circle cx="900" cy="520" r="230" fill="#2f4a24" fill-opacity=".04"/>
+            <circle cx="760" cy="200" r="90" fill="#6fb56f" fill-opacity=".08"/>
+          </g>
+          <g fill="none" stroke="#2f4a24" stroke-opacity=".20" stroke-width="5" stroke-linecap="round">
+            <path d="M360 520 C420 360, 520 260, 600 240 C680 220, 790 290, 860 410"/>
+            <path d="M420 520 C460 390, 520 320, 600 300 C690 276, 760 330, 820 420"/>
+            <path d="M330 520 C340 450, 390 360, 460 320"/>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial" fill="#152211">
+            <text x="50" y="110" font-size="22" letter-spacing="6" opacity=".55">VERDURE PRONTE</text>
+            <text x="50" y="155" font-size="16" opacity=".55">stagionalità • praticità</text>
+          </g>
+        </svg>`;
+
+        const microSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
+          <rect width="1200" height="700" fill="#fffdf0"/>
+          <g opacity=".9">
+            <circle cx="930" cy="240" r="170" fill="#2f4a24" fill-opacity=".04"/>
+            <circle cx="260" cy="520" r="240" fill="#f3c84e" fill-opacity=".10"/>
+            <circle cx="640" cy="200" r="90" fill="#6fb56f" fill-opacity=".08"/>
+          </g>
+          <g>
+            <rect x="360" y="330" width="480" height="220" rx="26"
+              fill="#2f4a24" fill-opacity=".05" stroke="#2f4a24" stroke-opacity=".20" stroke-width="4"/>
+            <g stroke="#2f4a24" stroke-opacity=".20" stroke-width="4" stroke-linecap="round">
+              <path d="M420 500 C430 430, 460 390, 500 360"/>
+              <path d="M500 520 C520 440, 560 400, 610 360"/>
+              <path d="M590 520 C610 450, 660 400, 710 360"/>
+              <path d="M690 500 C710 440, 760 400, 790 380"/>
+            </g>
+          </g>
+          <g font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial" fill="#152211">
+            <text x="50" y="110" font-size="22" letter-spacing="6" opacity=".55">MICROGREENS</text>
+            <text x="50" y="155" font-size="16" opacity=".55">qualità alta • formato agile</text>
+          </g>
+        </svg>`;
+
+        document.getElementById('heroImg').style.backgroundImage = `url("${svgData(heroSvg)}")`;
+        document.getElementById('eggImg').style.height = "180px";
+        document.getElementById('vegImg').style.height = "180px";
+        document.getElementById('microImg').style.height = "180px";
+        document.getElementById('eggImg').style.backgroundImage = `url("${svgData(eggSvg)}")`;
+        document.getElementById('vegImg').style.backgroundImage = `url("${svgData(vegSvg)}")`;
+        document.getElementById('microImg').style.backgroundImage = `url("${svgData(microSvg)}")`;
+      </script>
+    </footer>
+
+  </div>
+</body>
+</html>
+
+
