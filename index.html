@@ -71,16 +71,29 @@
     .logoRow{display:flex; gap:12px; align-items:center}
 
     .mark{
-      width:50px; height:50px; border-radius:16px;
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff, #eef6e7);
-      box-shadow: var(--shadow2);
-      display:grid; place-items:center;
-      user-select:none;
-      overflow:hidden;
-    }
-    .mark svg{display:block; width:40px; height:40px}
+  width:50px;
+  height:50px;
+  border-radius:16px;
 
+  /* niente bordo */
+  border:none;
+
+  /* sfondo trasparente */
+  background: transparent;
+
+  /* ombra molto morbida (opzionale, puoi anche toglierla) */
+  box-shadow: 0 6px 18px rgba(34,62,25,.10);
+
+  display:grid;
+  place-items:center;
+}
+
+    .mark svg{display:block; width:40px; height:40px}
+    .mark img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
     .nameRow{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
     .name{font-weight:950; letter-spacing:-.02em; font-size:28px; line-height:1.1}
     .familySlogan{
@@ -317,11 +330,6 @@
         <div class="mark" aria-label="Logo Pangea Farm">
   <img src="logo.png" alt="Pangea Farm logo" />
 </div>
-.mark img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
           <div>
             <div class="nameRow">
               <div class="name">Pangea Farm</div>
