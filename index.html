@@ -70,25 +70,20 @@
     .brand{display:flex; flex-direction:column; gap:10px; min-width:280px}
     .logoRow{display:flex; gap:12px; align-items:center}
 
-.mark{
+     .mark{
   width:72px;
   height:72px;
   border-radius:22px;
 
-  /* struttura */
   position: relative;
   display: grid;
   place-items: center;
 
-  /* niente bordo / fondo */
   border: none;
   background: transparent;
 
-  /* ombra morbida */
   box-shadow: 0 10px 32px rgba(34,62,25,.12);
 
-  /* animazione */
-  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 /* immagine logo */
@@ -346,6 +341,49 @@
     }
     .link{color:#23451c; text-decoration:none; border-bottom:1px solid rgba(34,62,25,.25)}
     .link:hover{border-bottom-color: rgba(34,62,25,.55)}
+
+    /* OVERRIDE LOGO (mettere in fondo al CSS) */
+.topbar .mark{
+  width:72px !important;
+  height:72px !important;
+  border-radius:22px !important;
+
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+
+  border: none !important;
+  background: transparent !important;
+
+  overflow: visible !important; /* se era hidden, tagliava la sfumatura */
+
+  box-shadow: 0 10px 32px rgba(34,62,25,.12) !important;
+}
+
+.topbar .mark img{
+  width:100% !important;
+  height:100% !important;
+  object-fit: contain !important;
+  display:block !important;
+}
+
+.topbar .mark::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:-14px !important;
+  border-radius:28px !important;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,.35),
+    rgba(255,255,255,.15) 40%,
+    rgba(255,255,255,0) 70%
+  ) !important;
+
+  z-index:-1 !important;
+  pointer-events:none !important;
+}
+
   </style>
 </head>
 
